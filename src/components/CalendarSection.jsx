@@ -210,8 +210,15 @@ export default function CalendarSection() {
         </div>
 
         {others.length > 0 && (
-          <div className="net-pattern relative mt-10 overflow-hidden bg-brand-950 px-6 py-8 sm:px-10 sm:py-10">
-            <div className="flex flex-wrap items-end justify-between gap-4">
+          <div className="relative mt-10 overflow-hidden bg-brand-950 px-6 py-8 sm:px-10 sm:py-10">
+            <img
+              src="/images/eventos/mica-raffe-charla.jpg"
+              alt=""
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-[50%_30%] opacity-30"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/85 to-brand-950/40" />
+            <div className="relative flex flex-wrap items-end justify-between gap-4">
               <h3 className="headline text-4xl text-white sm:text-5xl">
                 Más <span className="text-ball">fechas</span>
               </h3>
@@ -224,7 +231,7 @@ export default function CalendarSection() {
                 Novedades en Instagram <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>
-            <div className="mt-4 border-t border-white/15">
+            <div className="relative mt-4 border-t border-white/15">
               {others.map((ev) => (
                 <RowItem key={ev.id} ev={ev} past={isPast(ev, now)} />
               ))}

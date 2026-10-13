@@ -105,16 +105,16 @@ export const GUESTS = [
   {
     name: 'Kim Ahumada',
     role: 'N°1 de Chile',
-    text: 'La mejor jugadora del país llega a La Araucanía para un partido de exhibición y una clínica abierta.',
+    text: 'La mejor jugadora del país llega a La Araucanía: partido de exhibición, clínica abierta y charla junto a Mica Raffe.',
     photo: '/images/eventos/kim-ahumada.jpg',
-    photoPosition: '35% 30%',
+    photoPosition: '45% 20%',
   },
   {
     name: 'Mica Raffe',
     role: 'Psicóloga deportiva · Chile – Argentina',
-    text: 'Tres charlas de “Pádel mental” en Temuco, Imperial y Molco para entrenar lo que no se ve: la cabeza.',
+    text: 'Charlas de “Pádel mental” en Temuco, Imperial y Molco para entrenar lo que no se ve: la cabeza.',
     photo: '/images/eventos/mica-raffe.jpg',
-    photoPosition: '15% 50%',
+    photoPosition: '52% 25%',
   },
 ];
 
