@@ -19,8 +19,8 @@ export default function GuestsSection() {
                   src={g.photo}
                   alt={g.name}
                   loading="lazy"
-                  className="h-full min-h-[260px] w-full scale-[1.6] object-cover transition duration-500 group-hover:scale-[1.7]"
-                  style={{ objectPosition: g.photoPosition, transformOrigin: g.photoPosition }}
+                  className="h-full min-h-[260px] w-full object-cover transition duration-500 group-hover:scale-105"
+                  style={{ objectPosition: g.photoPosition }}
                 />
               </div>
               <div className="flex flex-col justify-between p-6 sm:p-8">

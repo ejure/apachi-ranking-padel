@@ -132,14 +132,6 @@ export default function Hero() {
         </div>
 
         <div className="lg:col-span-4 lg:col-start-9">
-          {/* En móvil la foto va arriba de la tarjeta */}
-          <div className="relative mb-6 aspect-[4/3] overflow-hidden lg:hidden" style={{ clipPath: 'polygon(6% 0, 100% 0, 94% 100%, 0 100%)' }}>
-            <img
-              src="/images/player_smash.jpg"
-              alt=""
-              className="h-full w-full object-cover object-[50%_25%]"
-            />
-          </div>
           <p className="mb-3 font-display text-sm font-bold uppercase tracking-[0.25em] text-white/70">
             {SEASON.label} · {SEASON.range}
           </p>
