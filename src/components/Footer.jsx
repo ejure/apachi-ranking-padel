@@ -60,10 +60,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li><a href="#inicio" className="hover:text-white transition-colors">Inicio</a></li>
+              <li><a href="#calendario" className="hover:text-white transition-colors">Programación Octubre</a></li>
+              <li><a href="#comunidad" className="hover:text-white transition-colors">Comunidad & Instagram</a></li>
               <li><a href="#ranking" className="hover:text-white transition-colors">Ranking Oficial</a></li>
-              <li><a href="#beneficios" className="hover:text-white transition-colors">Beneficios y Pasos</a></li>
-              <li><a href="#programacion" className="hover:text-white transition-colors">Programación Octubre</a></li>
-              <li><a href="#registro" className="hover:text-white transition-colors">Regístrate en la Liga</a></li>
+              <li><a href="#beneficios" className="hover:text-white transition-colors">Circuito APACHI</a></li>
               <li><a href="#patrocinadores" className="hover:text-white transition-colors">Patrocinadores</a></li>
             </ul>
           </div>
