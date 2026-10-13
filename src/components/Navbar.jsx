@@ -24,7 +24,7 @@ export default function Navbar() {
     >
       <div className="container-x flex h-[72px] items-center justify-between">
         <a href="#inicio" className="flex items-center gap-3" aria-label="APACHI, ir al inicio">
-          <img src="/images/apachi_emblem_white.png" alt="" className="h-10 w-10" />
+          <img src="/images/apachi-logo-white.png" alt="" className="h-12 w-12" />
           <span className="font-display text-2xl font-extrabold italic uppercase leading-none tracking-wide text-white">
             Apachi
           </span>

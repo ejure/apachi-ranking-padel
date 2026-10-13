@@ -27,5 +27,5 @@ Si se cambia `tailwind.config.js` y no se reflejan los cambios, reiniciar `npm r
 ## Estado
 - Prioridad: próximos eventos y explicar la asociación.
 - Ranking: "Muy pronto" — solo categorías.
-- Contacto: Instagram @rankingapachi.cl · rankingapachi@gmail.com
+- Contacto: Instagram @rankingapachi.cl · contacto@rankingapachi.cl (reenvía a Gmail, configurado en cPanel)
 - Textos de misión/visión son borrador (ver comentario en content.js). README.md está desactualizado.

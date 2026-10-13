@@ -15,7 +15,7 @@ export const CONTACT = {
   instagram: 'rankingapachi.cl',
   instagramUrl: 'https://www.instagram.com/rankingapachi.cl/',
   instagramDm: 'https://ig.me/m/rankingapachi.cl',
-  email: 'rankingapachi@gmail.com',
+  email: 'contacto@rankingapachi.cl',
   region: 'Región de La Araucanía, Chile',
 };
 

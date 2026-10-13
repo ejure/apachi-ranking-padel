@@ -100,7 +100,7 @@ export default function Footer() {
         <div className="relative border-t border-white/10">
           <div className="container-x flex flex-col gap-6 py-8 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
-              <img src="/images/apachi_emblem_white.png" alt="" className="h-9 w-9 opacity-80" />
+              <img src="/images/apachi-logo-white.png" alt="APACHI" className="h-14 w-14" />
               <span>
                 Asociación Pádel Araucanía Chile · {CONTACT.region}
               </span>
