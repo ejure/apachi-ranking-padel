@@ -1,147 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, Trophy, Menu, X, ChevronRight, ExternalLink } from 'lucide-react';
-import { InstagramIcon } from './Icons';
+import React, { useEffect, useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { NAV } from '../content';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navLinks = [
-    { label: 'Inicio', href: '#inicio' },
-    { label: 'Programación Octubre', href: '#calendario', highlight: true },
-    { label: 'Comunidad & Instagram', href: '#comunidad' },
-    { label: 'Ranking Oficial', href: '#ranking' },
-    { label: 'Circuito APACHI', href: '#beneficios' },
-    { label: 'Patrocinadores', href: '#patrocinadores' },
-  ];
+  const solid = scrolled || open;
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? 'bg-navy-950/95 backdrop-blur-md shadow-lg border-b border-white/10 py-3'
-          : 'bg-gradient-to-b from-navy-950/90 to-transparent py-5'
+      className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
+        solid ? 'bg-paper/95 backdrop-blur border-b border-ink/10' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          
-          {/* Logo Brand */}
-          <a href="#inicio" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-full bg-brand-500/20 border border-brand-400/40 p-1.5 flex items-center justify-center transition-transform group-hover:scale-105 shadow-glow">
-              <img
-                src="/images/apachi_emblem_white.png"
-                alt="APACHI Logo"
-                className="w-full h-full object-contain filter drop-shadow"
-              />
-            </div>
-            <div>
-              <div className="text-white font-extrabold text-base tracking-tight leading-none flex items-center gap-1.5">
-                <span>APACHI</span>
-                <span className="text-[10px] font-semibold uppercase tracking-wider bg-brand-500 text-white px-1.5 py-0.5 rounded">
-                  Oficial
-                </span>
-              </div>
-              <p className="text-[10px] text-blue-200 tracking-wider font-medium uppercase mt-0.5">
-                Asociación Pádel Araucanía Chile
-              </p>
-            </div>
-          </a>
+      <div className="container-x flex h-16 items-center justify-between">
+        <a href="#inicio" className="flex items-center gap-3">
+          <img
+            src={solid ? '/images/apachi_emblem_dark.png' : '/images/apachi_emblem_white.png'}
+            alt=""
+            className="h-9 w-9"
+          />
+          <span
+            className={`font-display text-[13px] font-bold uppercase leading-tight tracking-wide ${
+              solid ? 'text-brand-500' : 'text-white'
+            }`}
+          >
+            Asociación Pádel
+            <br />
+            Araucanía Chile
+          </span>
+        </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className={`text-sm font-medium px-3.5 py-2 rounded-xl transition-all ${
-                  link.highlight
-                    ? 'text-neon-lime bg-white/5 border border-neon-lime/30 font-bold hover:bg-white/10'
-                    : 'text-slate-200 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Right Action: Direct Instagram CTA */}
-          <div className="hidden sm:flex items-center space-x-3">
+        <nav className="hidden md:flex items-center gap-8">
+          {NAV.map((l) => (
             <a
-              href="https://www.instagram.com/rankingapachi.cl/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 via-rose-600 to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <InstagramIcon className="w-4 h-4" />
-              <span>@rankingapachi.cl</span>
-              <ExternalLink className="w-3 h-3 ml-0.5" />
-            </a>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <div className="flex items-center space-x-2 lg:hidden">
-            <a
-              href="https://www.instagram.com/rankingapachi.cl/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-white/10 text-white border border-white/15"
-              aria-label="Instagram"
-            >
-              <InstagramIcon className="w-5 h-5" />
-            </a>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
-              aria-label="Menú"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Mobile Nav Dropdown */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-navy-950/95 backdrop-blur-xl border-b border-white/10 px-4 pt-3 pb-6 space-y-2 mt-2">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className={`flex items-center justify-between text-base font-medium py-2.5 px-3 rounded-xl ${
-                link.highlight
-                  ? 'text-neon-lime bg-white/10 font-bold'
-                  : 'text-slate-200 hover:text-white hover:bg-white/5'
+              key={l.href}
+              href={l.href}
+              className={`text-sm transition-colors ${
+                solid ? 'text-ink/70 hover:text-brand-500' : 'text-white/80 hover:text-white'
               }`}
             >
-              <span>{link.label}</span>
-              <ChevronRight className="w-4 h-4 text-slate-400" />
+              {l.label}
             </a>
           ))}
+        </nav>
 
-          <div className="pt-3 border-t border-white/10">
+        <button
+          onClick={() => setOpen(!open)}
+          className={`md:hidden p-2 ${solid ? 'text-ink' : 'text-white'}`}
+          aria-label="Menú"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+
+      {open && (
+        <nav className="md:hidden border-t border-ink/10 bg-paper">
+          {NAV.map((l) => (
             <a
-              href="https://www.instagram.com/rankingapachi.cl/"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center space-x-2 w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 via-rose-600 to-amber-500 text-white font-bold text-sm uppercase tracking-wider"
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="container-x block border-b border-ink/10 py-4 font-display text-lg text-ink"
             >
-              <InstagramIcon className="w-4 h-4" />
-              <span>Seguir en Instagram @rankingapachi.cl</span>
+              {l.label}
             </a>
-          </div>
-        </div>
+          ))}
+        </nav>
       )}
     </header>
   );
