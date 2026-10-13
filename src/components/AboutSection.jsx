@@ -91,7 +91,8 @@ export default function AboutSection() {
         </div>
       </div>
 
-      {/* Cómo funciona */}
+      {/* Cómo funciona — se muestra solo si ABOUT.showSteps es true (content.js) */}
+      {ABOUT.showSteps && (
       <div className="container-x py-20 sm:py-28">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
@@ -116,6 +117,7 @@ export default function AboutSection() {
           ))}
         </ol>
       </div>
+      )}
     </section>
   );
 }

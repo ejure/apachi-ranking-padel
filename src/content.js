@@ -148,6 +148,8 @@ export const ABOUT = {
       text: 'Somos intermediarios entre jugadores, clubes e instituciones para potenciar tu próximo nivel.',
     },
   ],
+  // Sección "Súmate en 4 pasos": oculta mientras no se acepten registros. Cambiar a true para mostrarla.
+  showSteps: false,
   steps: [
     { n: '01', title: 'Regístrate', text: 'Solo necesitas tu nombre y correo electrónico.' },
     { n: '02', title: 'Juega', text: 'Marcamos presencia en torneos y campeonatos para ir sumando tu puntaje.' },
