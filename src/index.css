@@ -4,7 +4,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 72px;
 }
 
 body {
@@ -15,30 +15,86 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3 {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  letter-spacing: -0.035em;
-}
-
-.container-x {
-  max-width: 72rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
-@media (min-width: 640px) {
+@layer components {
   .container-x {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-8;
+  }
+
+  /* Titulares deportivos: condensados, itálicos, en mayúsculas */
+  .headline {
+    @apply font-display font-extrabold uppercase italic leading-[0.88] tracking-[-0.01em];
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-display text-sm font-bold uppercase tracking-[0.25em];
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply inline-block h-[3px] w-8 -skew-x-[20deg] bg-current;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-display text-lg font-bold uppercase italic tracking-wide transition;
+    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    padding: 0.85rem 1.75rem;
+  }
+
+  .btn-ball {
+    background-color: #d7f24a;
+    color: #071a35;
+  }
+  .btn-ball:hover {
+    background-color: #ffffff;
+  }
+
+  .btn-ghost {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    backdrop-filter: blur(8px);
+  }
+  .btn-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-brand {
+    background-color: #0b6bdf;
+    color: #ffffff;
+  }
+  .btn-brand:hover {
+    background-color: #0857b8;
+  }
+
+  .tag {
+    @apply inline-block -skew-x-12 px-2.5 py-1 font-display text-xs font-bold uppercase tracking-[0.15em];
+  }
+
+  .tag > span {
+    @apply inline-block skew-x-12;
   }
 }
 
-.eyebrow {
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #0b6bdf;
+/* Líneas de cancha decorativas */
+.court-lines {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 2px, transparent 2px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 2px, transparent 2px);
+  background-size: 50% 100%, 100% 50%;
+  background-position: center;
+}
+
+.net-pattern {
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
 }
