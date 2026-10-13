@@ -6,6 +6,7 @@ Landing de una sola página para APACHI. Migrado desde Antigravity. Idioma: espa
 - Vite 6 + React 18 + Tailwind CSS 3 (+ PostCSS/autoprefixer), íconos `lucide-react` (sin logos de marca: el de Instagram es `components/InstagramIcon.jsx`).
 - Sin backend ni router. Todo estático.
 - Repo: `github.com/ejure/apachi-ranking-padel` (rama `main`).
+- Hosting: Vercel, proyecto `apachi-padel` (se despliega solo con cada push a `main`). Dominio: https://rankingapachi.cl (DNS en cPanel de PremiumHosting: A @ → 216.198.79.1, CNAME www → Vercel).
 
 ## Comandos
 `npm install` · `npm run dev` (http://localhost:5173) · `npm run build` (→ `dist/`) · `npm run preview`
